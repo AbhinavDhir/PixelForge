@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ipynb_checkpoints/
+# dataset is downloaded automatically (python dataset.py)
+data/
+# large training checkpoints (~93 MB, include optimizer state): share via the Colab ZIP instead of git.
+# The small inference-only generators (~15 MB) ARE committed so the app works right after cloning.
+checkpoints/*.pt
+!checkpoints/generator_final.pt
+checkpoints/smoke/
+outputs/smoke/
+*.zip
+.DS_Store

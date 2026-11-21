@@ -1,0 +1,61 @@
+{
+  "checkpoint": "checkpoints/generator_final.pt",
+  "checkpoint_epoch": 50,
+  "device": "mps",
+  "num_generated": 512,
+  "num_training_images": 3648,
+  "seed": 123,
+  "final_epoch_losses": {
+    "loss_d": 0.52314,
+    "loss_g": 4.83687,
+    "d_real": 0.83424,
+    "d_fake": 0.06486
+  },
+  "interpolation": {
+    "pair": [
+      123,
+      124
+    ],
+    "mean_consecutive_frame_rmse": 0.034164875745773315,
+    "max_consecutive_frame_rmse": 0.05978267267346382,
+    "endpoint_rmse": 0.18792624771595
+  },
+  "pairwise_rmse_generated": {
+    "mean": 0.1665174812078476,
+    "std": 0.04474594071507454,
+    "min": 0.011321760714054108,
+    "near_duplicate_pairs(<0.02)": 17
+  },
+  "pairwise_rmse_real": {
+    "mean": 0.1874435991048813,
+    "std": 0.030756033957004547,
+    "min": 0.05766245350241661,
+    "near_duplicate_pairs(<0.02)": 0
+  },
+  "diversity_ratio_generated_over_real": 0.8883604561747409,
+  "pairwise_rmse_16x16_generated": 0.11903076618909836,
+  "pairwise_rmse_16x16_real": 0.13253895938396454,
+  "nearest_neighbor_rmse_generated_to_train": {
+    "mean": 0.11352504789829254,
+    "median": 0.11055214703083038,
+    "min": 0.0747913345694542
+  },
+  "nearest_neighbor_rmse_real_to_other_train": {
+    "mean": 0.08905152976512909,
+    "median": 0.08785880357027054,
+    "min": 0.0005274040740914643
+  },
+  "fraction_generated_closer_than_real_median_nn": 0.044921875,
+  "possible_copies(nn_rmse<0.02)": 0,
+  "color_histogram_L1_distance": 0.0656576156616211,
+  "interpretation": [
+    "Diversity ratio 0.89: generated samples are about as varied as real samples in pixel space.",
+    "Median NN distance generated->train (0.111) vs real->other-train (0.088): no sign of copying; samples are new combinations rather than near-duplicates."
+  ],
+  "notes": [
+    "Pixel RMSE is a crude proxy: it ignores perceptual similarity and small shifts.",
+    "Diversity ratio near 1 means generated samples are as spread out as real ones; much lower suggests mode collapse.",
+    "Generated->train NN distances far below real->train NN distances would suggest memorisation.",
+    "FID was not computed: it needs an ImageNet Inception network and thousands of samples, and is unreliable for 64x64 pixel art with ~3.6k training images."
+  ]
+}

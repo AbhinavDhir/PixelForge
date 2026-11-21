@@ -1,0 +1,99 @@
+{
+  "checkpoint": "checkpoints/generator_final.pt",
+  "checkpoint_epoch": 100,
+  "device": "mps",
+  "num_generated": 512,
+  "num_training_images": 3648,
+  "seed": 123,
+  "final_epoch_losses": {
+    "loss_d": 0.50108,
+    "loss_g": 4.84268,
+    "d_real": 0.84368,
+    "d_fake": 0.05377
+  },
+  "interpolation": {
+    "pair": [
+      123,
+      124
+    ],
+    "mean_consecutive_frame_rmse": 0.005846673622727394,
+    "max_consecutive_frame_rmse": 0.010585563257336617,
+    "endpoint_rmse": 0.03940584138035774
+  },
+  "pairwise_rmse_generated": {
+    "mean": 0.15769362449645996,
+    "std": 0.03682423755526543,
+    "min": 0.011682453565299511,
+    "near_duplicate_pairs(<0.02)": 179
+  },
+  "pairwise_rmse_real": {
+    "mean": 0.1874435991048813,
+    "std": 0.030756033957004547,
+    "min": 0.05766245350241661,
+    "near_duplicate_pairs(<0.02)": 0
+  },
+  "diversity_ratio_generated_over_real": 0.8412857267439943,
+  "pairwise_rmse_16x16_generated": 0.11425419896841049,
+  "pairwise_rmse_16x16_real": 0.13253895938396454,
+  "nearest_neighbor_rmse_generated_to_train": {
+    "mean": 0.08909910917282104,
+    "median": 0.08777201920747757,
+    "min": 0.06204971298575401
+  },
+  "nearest_neighbor_rmse_real_to_other_train": {
+    "mean": 0.08905152976512909,
+    "median": 0.08785880357027054,
+    "min": 0.0005274040740914643
+  },
+  "fraction_generated_closer_than_real_median_nn": 0.505859375,
+  "possible_copies(nn_rmse<0.02)": 0,
+  "color_histogram_L1_distance": 0.07569090276956558,
+  "controllability": {
+    "hair": {
+      "accuracy": 0.7870370370370371,
+      "shuffled_baseline": 0.11574074074074074,
+      "chance_uniform": 0.1111111111111111,
+      "per_class": {
+        "black": 1.0,
+        "brown": 0.25,
+        "blonde": 1.0,
+        "red": 1.0,
+        "white": 0.9583333333333334,
+        "grey": 0.4583333333333333,
+        "green": 1.0,
+        "blue": 0.4583333333333333,
+        "purple": 0.9583333333333334
+      },
+      "labeller_agreement_on_real": 1.0
+    },
+    "outfit": {
+      "accuracy": 0.7175925925925926,
+      "shuffled_baseline": 0.10416666666666667,
+      "chance_uniform": 0.1111111111111111,
+      "per_class": {
+        "black": 0.0625,
+        "brown": 0.1875,
+        "yellow": 1.0,
+        "red": 0.75,
+        "white": 0.7916666666666666,
+        "grey": 0.6875,
+        "green": 1.0,
+        "blue": 0.9791666666666666,
+        "purple": 1.0
+      },
+      "labeller_agreement_on_real": 1.0
+    }
+  },
+  "interpretation": [
+    "Diversity ratio 0.84: somewhat less varied than the real data (partial mode dropping is possible).",
+    "Hair control: requested colour obtained in 79% of samples vs 12% if requests were ignored (labeller agrees with itself on 100% of real images).",
+    "Outfit control: requested colour obtained in 72% of samples vs 10% if requests were ignored (labeller agrees with itself on 100% of real images).",
+    "Median NN distance generated->train (0.088) vs real->other-train (0.088): no sign of copying; samples are new combinations rather than near-duplicates."
+  ],
+  "notes": [
+    "Pixel RMSE is a crude proxy: it ignores perceptual similarity and small shifts.",
+    "Diversity ratio near 1 means generated samples are as spread out as real ones; much lower suggests mode collapse.",
+    "Generated->train NN distances far below real->train NN distances would suggest memorisation.",
+    "FID was not computed: it needs an ImageNet Inception network and thousands of samples, and is unreliable for 64x64 pixel art with ~3.6k training images."
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "root": "data/tinyhero",
+  "views": {
+    "0": {
+      "name": "back",
+      "count": 912,
+      "non_png": 0
+    },
+    "1": {
+      "name": "left",
+      "count": 912,
+      "non_png": 0
+    },
+    "2": {
+      "name": "front",
+      "count": 912,
+      "non_png": 0
+    },
+    "3": {
+      "name": "right",
+      "count": 912,
+      "non_png": 0
+    }
+  },
+  "sizes": {
+    "64x64": 3648
+  },
+  "modes": {
+    "RGBA": 3648
+  },
+  "formats": {
+    "PNG": 3648
+  },
+  "total_images": 3648,
+  "characters_in_all_views": 912,
+  "mean_transparent_fraction": 0.7612,
+  "matches_documentation": true,
+  "pixels": {
+    "num_images": 3648,
+    "tensor_shape": [
+      3648,
+      3,
+      64,
+      64
+    ],
+    "channel_mean_0_1": [
+      0.0985,
+      0.0792,
+      0.0691
+    ],
+    "channel_std_0_1": [
+      0.2352,
+      0.2009,
+      0.1808
+    ],
+    "normalized_min": -1.0,
+    "normalized_max": 0.851,
+    "per_view_counts": {
+      "back": 912,
+      "left": 912,
+      "front": 912,
+      "right": 912
+    },
+    "background_rgb": [
+      0,
+      0,
+      0
+    ]
+  }
+}
